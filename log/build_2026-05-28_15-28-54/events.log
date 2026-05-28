@@ -1,0 +1,119 @@
+[0.000000] (-) TimerEvent: {}
+[0.000574] (urg_node2) JobQueued: {'identifier': 'urg_node2', 'dependencies': OrderedDict()}
+[0.001734] (urg_node2) JobStarted: {'identifier': 'urg_node2'}
+[0.017939] (urg_node2) JobProgress: {'identifier': 'urg_node2', 'progress': 'cmake'}
+[0.019972] (urg_node2) JobProgress: {'identifier': 'urg_node2', 'progress': 'build'}
+[0.020023] (urg_node2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ponqoo/rodep/urg_node2/build/urg_node2', '--', '-j14', '-l14'], 'cwd': '/home/ponqoo/rodep/urg_node2/build/urg_node2', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'TMUX': '/tmp/tmux-1000/default,1752,0', 'CODEX_CI': '1', 'USER': 'ponqoo', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{34178126-aeb2-532f-9002-c9339292f134}', 'HOME': '/home/ponqoo', 'OLDPWD': '/home/ponqoo/rodep', 'TERM_PROGRAM_VERSION': '3.4', 'NVM_BIN': '/home/ponqoo/.nvm/versions/node/v22.22.3/bin', 'NVM_INC': '/home/ponqoo/.nvm/versions/node/v22.22.3/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': '', 'WSL_DISTRO_NAME': 'Ubuntu-24.04', 'NVM_DIR': '/home/ponqoo/.nvm', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ponqoo', 'NAME': 'jodan-pc', 'WSL_INTEROP': '/run/WSL/1401_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'tmux-256color', 'PATH': '/home/ponqoo/.local/bin:/home/ponqoo/.local/bin:/home/ponqoo/.codex/tmp/arg0/codex-arg0i64zRo:/home/ponqoo/.nvm/versions/node/v22.22.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/ponqoo/.local/bin:/home/ponqoo/.local/bin:/home/ponqoo/.local/bin:/opt/ros/jazzy/bin:/home/ponqoo/.local/bin:/home/ponqoo/.nvm/versions/node/v22.22.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Microsoft VS Code/bin:/mnt/c/Users/ponqo/.local/bin:/mnt/c/Users/ponqo/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ponqo/AppData/AndroidCLI:/snap/bin', 'WT_SESSION': '0bb55e18-95de-461e-bc90-8ffcbd089574', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'en_US.UTF-8', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'TERM_PROGRAM': 'tmux', 'ROS_DOMAIN_ID': '10', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '019e6d44-c973-7ef1-ad00-368d8f18d382', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'PWD': '/home/ponqoo/rodep/urg_node2/build/urg_node2', 'LC_ALL': 'C.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/ponqoo/.nvm/versions/node/v22.22.3/lib/node_modules/@openai/codex', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'CODEX_MANAGED_BY_NPM': '1', 'TMUX_PANE': '%0', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[0.100847] (-) TimerEvent: {}
+[0.152352] (urg_node2) StdoutLine: {'line': b'[ 81%] Built target urg_c\n'}
+[0.186846] (urg_node2) StdoutLine: {'line': b'[ 90%] Building CXX object CMakeFiles/urg_node2_node.dir/src/urg_node2.cpp.o\n'}
+[0.201208] (-) TimerEvent: {}
+[0.301599] (-) TimerEvent: {}
+[0.401932] (-) TimerEvent: {}
+[0.502507] (-) TimerEvent: {}
+[0.609088] (-) TimerEvent: {}
+[0.710113] (-) TimerEvent: {}
+[0.810838] (-) TimerEvent: {}
+[0.911550] (-) TimerEvent: {}
+[1.012191] (-) TimerEvent: {}
+[1.114279] (-) TimerEvent: {}
+[1.218501] (-) TimerEvent: {}
+[1.319754] (-) TimerEvent: {}
+[1.420681] (-) TimerEvent: {}
+[1.521102] (-) TimerEvent: {}
+[1.622239] (-) TimerEvent: {}
+[1.723265] (-) TimerEvent: {}
+[1.824196] (-) TimerEvent: {}
+[1.924905] (-) TimerEvent: {}
+[2.027529] (-) TimerEvent: {}
+[2.132831] (-) TimerEvent: {}
+[2.239660] (-) TimerEvent: {}
+[2.341203] (-) TimerEvent: {}
+[2.442221] (-) TimerEvent: {}
+[2.546106] (-) TimerEvent: {}
+[2.652775] (-) TimerEvent: {}
+[2.759250] (-) TimerEvent: {}
+[2.865740] (-) TimerEvent: {}
+[2.971178] (-) TimerEvent: {}
+[3.077833] (-) TimerEvent: {}
+[3.184502] (-) TimerEvent: {}
+[3.291217] (-) TimerEvent: {}
+[3.397860] (-) TimerEvent: {}
+[3.504630] (-) TimerEvent: {}
+[3.611331] (-) TimerEvent: {}
+[3.717969] (-) TimerEvent: {}
+[3.822859] (-) TimerEvent: {}
+[3.927781] (-) TimerEvent: {}
+[4.030633] (-) TimerEvent: {}
+[4.133245] (-) TimerEvent: {}
+[4.239477] (-) TimerEvent: {}
+[4.345245] (-) TimerEvent: {}
+[4.446624] (-) TimerEvent: {}
+[4.548525] (-) TimerEvent: {}
+[4.655243] (-) TimerEvent: {}
+[4.762199] (-) TimerEvent: {}
+[4.862711] (-) TimerEvent: {}
+[4.964553] (-) TimerEvent: {}
+[5.065471] (-) TimerEvent: {}
+[5.166377] (-) TimerEvent: {}
+[5.267052] (-) TimerEvent: {}
+[5.373695] (-) TimerEvent: {}
+[5.480347] (-) TimerEvent: {}
+[5.581934] (-) TimerEvent: {}
+[5.688567] (-) TimerEvent: {}
+[5.791629] (-) TimerEvent: {}
+[5.892512] (-) TimerEvent: {}
+[5.994268] (-) TimerEvent: {}
+[6.095234] (-) TimerEvent: {}
+[6.196415] (-) TimerEvent: {}
+[6.297662] (-) TimerEvent: {}
+[6.398455] (-) TimerEvent: {}
+[6.499096] (-) TimerEvent: {}
+[6.599459] (-) TimerEvent: {}
+[6.700358] (-) TimerEvent: {}
+[6.801036] (-) TimerEvent: {}
+[6.903498] (-) TimerEvent: {}
+[7.005960] (-) TimerEvent: {}
+[7.106457] (-) TimerEvent: {}
+[7.206794] (-) TimerEvent: {}
+[7.307139] (-) TimerEvent: {}
+[7.407668] (-) TimerEvent: {}
+[7.510374] (-) TimerEvent: {}
+[7.610796] (-) TimerEvent: {}
+[7.653103] (urg_node2) StdoutLine: {'line': b'[100%] Linking CXX executable urg_node2_node\n'}
+[7.711254] (-) TimerEvent: {}
+[7.811675] (-) TimerEvent: {}
+[7.915961] (-) TimerEvent: {}
+[8.020097] (-) TimerEvent: {}
+[8.121448] (-) TimerEvent: {}
+[8.158534] (urg_node2) StdoutLine: {'line': b'[100%] Built target urg_node2_node\n'}
+[8.170470] (urg_node2) CommandEnded: {'returncode': 0}
+[8.172234] (urg_node2) JobProgress: {'identifier': 'urg_node2', 'progress': 'install'}
+[8.187918] (urg_node2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ponqoo/rodep/urg_node2/build/urg_node2'], 'cwd': '/home/ponqoo/rodep/urg_node2/build/urg_node2', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'TMUX': '/tmp/tmux-1000/default,1752,0', 'CODEX_CI': '1', 'USER': 'ponqoo', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{34178126-aeb2-532f-9002-c9339292f134}', 'HOME': '/home/ponqoo', 'OLDPWD': '/home/ponqoo/rodep', 'TERM_PROGRAM_VERSION': '3.4', 'NVM_BIN': '/home/ponqoo/.nvm/versions/node/v22.22.3/bin', 'NVM_INC': '/home/ponqoo/.nvm/versions/node/v22.22.3/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': '', 'WSL_DISTRO_NAME': 'Ubuntu-24.04', 'NVM_DIR': '/home/ponqoo/.nvm', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ponqoo', 'NAME': 'jodan-pc', 'WSL_INTEROP': '/run/WSL/1401_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'tmux-256color', 'PATH': '/home/ponqoo/.local/bin:/home/ponqoo/.local/bin:/home/ponqoo/.codex/tmp/arg0/codex-arg0i64zRo:/home/ponqoo/.nvm/versions/node/v22.22.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/ponqoo/.local/bin:/home/ponqoo/.local/bin:/home/ponqoo/.local/bin:/opt/ros/jazzy/bin:/home/ponqoo/.local/bin:/home/ponqoo/.nvm/versions/node/v22.22.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Microsoft VS Code/bin:/mnt/c/Users/ponqo/.local/bin:/mnt/c/Users/ponqo/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ponqo/AppData/AndroidCLI:/snap/bin', 'WT_SESSION': '0bb55e18-95de-461e-bc90-8ffcbd089574', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'en_US.UTF-8', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'TERM_PROGRAM': 'tmux', 'ROS_DOMAIN_ID': '10', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '019e6d44-c973-7ef1-ad00-368d8f18d382', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'PWD': '/home/ponqoo/rodep/urg_node2/build/urg_node2', 'LC_ALL': 'C.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/ponqoo/.nvm/versions/node/v22.22.3/lib/node_modules/@openai/codex', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'CODEX_MANAGED_BY_NPM': '1', 'TMUX_PANE': '%0', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[8.199256] (urg_node2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[8.203988] (urg_node2) StdoutLine: {'line': b'-- Installing: /home/ponqoo/rodep/urg_node2/install/urg_node2/lib/urg_node2/urg_node2_node\n'}
+[8.207131] (urg_node2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/ponqoo/rodep/urg_node2/install/urg_node2/lib/urg_node2/urg_node2_node" to ""\n'}
+[8.209826] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/lib/liburg_c.so\n'}
+[8.210260] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/launch\n'}
+[8.210423] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/launch/urg_node2.launch.py\n'}
+[8.210574] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/config\n'}
+[8.210723] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/config/params_serial.yaml\n'}
+[8.210866] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/ament_index/resource_index/package_run_dependencies/urg_node2\n'}
+[8.210979] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/ament_index/resource_index/parent_prefix_path/urg_node2\n'}
+[8.211070] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/environment/ament_prefix_path.sh\n'}
+[8.211406] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/environment/ament_prefix_path.dsv\n'}
+[8.212316] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/environment/path.sh\n'}
+[8.212952] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/environment/path.dsv\n'}
+[8.214046] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/local_setup.bash\n'}
+[8.214180] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/local_setup.sh\n'}
+[8.214254] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/local_setup.zsh\n'}
+[8.214309] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/local_setup.dsv\n'}
+[8.214359] (urg_node2) StdoutLine: {'line': b'-- Installing: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/package.dsv\n'}
+[8.216264] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/ament_index/resource_index/packages/urg_node2\n'}
+[8.216497] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/cmake/urg_node2Config.cmake\n'}
+[8.216644] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/cmake/urg_node2Config-version.cmake\n'}
+[8.216799] (urg_node2) StdoutLine: {'line': b'-- Up-to-date: /home/ponqoo/rodep/urg_node2/install/urg_node2/share/urg_node2/package.xml\n'}
+[8.219499] (urg_node2) CommandEnded: {'returncode': 0}
+[8.221671] (-) TimerEvent: {}
+[8.259824] (urg_node2) JobEnded: {'identifier': 'urg_node2', 'rc': 0}
+[8.260614] (-) EventReactorShutdown: {}

@@ -13,13 +13,11 @@
 # limitations under the License.
 
 import os
-import launch
-import yaml
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration
-from launch.actions import (DeclareLaunchArgument, EmitEvent, RegisterEventHandler)
+from launch.actions import (DeclareLaunchArgument, EmitEvent, OpaqueFunction, RegisterEventHandler)
 from launch.event_handlers import OnProcessStart
 from launch.events import matches_action
 from launch_ros.actions import LifecycleNode
@@ -27,18 +25,19 @@ from launch_ros.event_handlers import OnStateTransition
 from launch_ros.events.lifecycle import ChangeState
 from lifecycle_msgs.msg import Transition
 
-def generate_launch_description():
+
+def launch_setup(context, *args, **kwargs):
+    del args, kwargs
 
     # パラメータファイルのパス設定
-    config_file_path = os.path.join(
-        get_package_share_directory('urg_node2'),
-        'config',
-        'params_ether.yaml'
-    )
-
-    # パラメータファイルのロード
-    with open(config_file_path, 'r') as file:
-        config_params = yaml.safe_load(file)['urg_node2']['ros__parameters']
+    params_file = LaunchConfiguration('params_file').perform(context)
+    if not params_file:
+        connection_type = LaunchConfiguration('connection_type').perform(context)
+        params_file = os.path.join(
+            get_package_share_directory('urg_node2'),
+            'config',
+            'params_serial.yaml' if connection_type == 'serial' else 'params_ether.yaml'
+        )
 
     # urg_node2をライフサイクルノードとして起動
     lifecycle_node = LifecycleNode(
@@ -46,7 +45,7 @@ def generate_launch_description():
         executable='urg_node2_node',
         name=LaunchConfiguration('node_name'),
         remappings=[('scan', LaunchConfiguration('scan_topic_name'))],
-        parameters=[config_params],
+        parameters=[params_file],
         namespace='',
         output='screen',
     )
@@ -86,15 +85,25 @@ def generate_launch_description():
     )
 
     # パラメータについて
+    return [
+        lifecycle_node,
+        urg_node2_node_configure_event_handler,
+        urg_node2_node_activate_event_handler,
+    ]
+
+
+def generate_launch_description():
+    # パラメータについて
     # auto_start      : 起動時自動でActive状態まで遷移 (default)true
+    # connection_type : params_file未指定時の接続方式。serialまたはether (default)"serial"
+    # params_file     : 使用するパラメータファイル。指定時はconnection_typeより優先
     # node_name       : ノード名 (default)"urg_node2"
     # scan_topic_name : トピック名 (default)"scan" *マルチエコー非対応*
     return LaunchDescription([
         DeclareLaunchArgument('auto_start', default_value='true'),
+        DeclareLaunchArgument('connection_type', default_value='serial'),
+        DeclareLaunchArgument('params_file', default_value=''),
         DeclareLaunchArgument('node_name', default_value='urg_node2'),
         DeclareLaunchArgument('scan_topic_name', default_value='scan'),
-        lifecycle_node,
-        urg_node2_node_configure_event_handler,
-        urg_node2_node_activate_event_handler,
+        OpaqueFunction(function=launch_setup),
     ])
-

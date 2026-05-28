@@ -139,13 +139,24 @@ $ colcon test
 1. Connect LiDAR  
    Connect via Ethernet or USB. 
 1. Set the connection destination (parameters)   
-   Edit `config/params_ether.yaml` (for Ethernet connections)   
-   ※If you use USB connection, edit `config/params_serial.yaml' and change the parameter file specification part of `launch/urg_node2.launch.py` to params_serial.yaml.
+   Edit `config/params_serial.yaml` for USB connections or `config/params_ether.yaml` for Ethernet connections.
 1. Node startup
-   Execute the following command to automatically transition to the Active state and begin distribution of scan data.
+   Execute the following command to start with the USB connection settings, automatically transition to the Active state, and begin publishing scan data.
 
    ```
    $ ros2 launch urg_node2 urg_node2.launch.py
+   ```
+
+   To start with the Ethernet connection settings, run:
+
+   ```
+   $ ros2 launch urg_node2 urg_node2.launch.py connection_type:=ether
+   ```
+
+   To use a custom parameter file, run:
+
+   ```
+   $ ros2 launch urg_node2 urg_node2.launch.py params_file:=/path/to/params.yaml
    ```
 
    If you do not want to automatically transition to the Active state, execute the following command. (After startup, it will enter the Unconfigured state.)
@@ -193,4 +204,3 @@ If you encounter abnormalities, such as no scan data being delivered, please fol
 When diagnostic_updater is generated, declare_parameter is always executed. The state transition cannot take place because of the failure of diagnostic_updater generation.  
 This limitation will be resolved when the following pull request is reflected. 
   https://github.com/ros/diagnostics/pull/227
-

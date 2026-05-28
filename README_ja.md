@@ -139,13 +139,24 @@ $ colcon test
 1. LiDARを接続  
    イーサネットもしくはUSBで接続します。  
 1. 接続先（パラメータ）を設定  
-   config/params_ether.yaml（イーサネット接続の場合）を編集して接続先の設定を行います。  
-   ※USB接続を使用する場合はconfig/params_serial.yamlを編集し`launch/urg_node2.launch.py`のパラメータファイルの指定部分をparams_serial.yamlに変更してください。
+   USB接続の場合は`config/params_serial.yaml`、イーサネット接続の場合は`config/params_ether.yaml`を編集して接続先の設定を行います。
 1. ノードの起動  
-   以下のコマンドを実行すると、自動でActive状態に遷移しスキャンデータの配信が開始されます。
+   以下のコマンドを実行すると、USB接続設定で起動し、自動でActive状態に遷移してスキャンデータの配信が開始されます。
 
    ```
    $ ros2 launch urg_node2 urg_node2.launch.py
+   ```
+
+   イーサネット接続設定で起動する場合は以下のコマンドを実行してください。
+
+   ```
+   $ ros2 launch urg_node2 urg_node2.launch.py connection_type:=ether
+   ```
+
+   任意のパラメータファイルを使う場合は以下のように指定できます。
+
+   ```
+   $ ros2 launch urg_node2 urg_node2.launch.py params_file:=/path/to/params.yaml
    ```
 
    自動でActive状態へ遷移させたくない場合は以下のコマンドを実行してください。（起動後、Unconfigured状態になります）
@@ -192,4 +203,3 @@ $ colcon test
 diagnostic_updaterを生成するとdeclare_parameterが必ず実行されます。ROS2では、定義済みパラメータに対してdeclare_parameterを実行するとエラーになるため、状態遷移時のdiagnostic_updater生成に失敗して状態遷移ができません。  
 下記のプルリクエストが反映されれば本制限は解消されます。  
   https://github.com/ros/diagnostics/pull/227
-

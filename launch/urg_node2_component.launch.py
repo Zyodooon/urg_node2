@@ -13,25 +13,26 @@
 # limitations under the License.
 
 import os
-import launch
-import yaml
 from launch_ros.actions import ComposableNodeContainer, LoadComposableNodes
 from launch_ros.descriptions import ComposableNode
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, OpaqueFunction
+from launch.substitutions import LaunchConfiguration
 
-def generate_launch_description():
+
+def launch_setup(context, *args, **kwargs):
+    del args, kwargs
 
     # パラメータファイルのパス設定
-    config_file_path = os.path.join(
-        get_package_share_directory('urg_node2'),
-        'config',
-        'params_ether.yaml'
-    )
-
-    # パラメータファイルのロード
-    with open(config_file_path, 'r') as file:
-        config_params = yaml.safe_load(file)['urg_node2']['ros__parameters']
+    params_file = LaunchConfiguration('params_file').perform(context)
+    if not params_file:
+        connection_type = LaunchConfiguration('connection_type').perform(context)
+        params_file = os.path.join(
+            get_package_share_directory('urg_node2'),
+            'config',
+            'params_serial.yaml' if connection_type == 'serial' else 'params_ether.yaml'
+        )
 
     # コンテナノードの起動
     container_node = ComposableNodeContainer(
@@ -50,13 +51,20 @@ def generate_launch_description():
                 package='urg_node2',
                 plugin='urg_node2::UrgNode2',
                 name='urg_node2',
-                parameters=[config_params],
+                parameters=[params_file],
             ),
         ],
     )
 
-    return LaunchDescription([
+    return [
         container_node,
         load_composable_nodes,
-    ])
+    ]
 
+
+def generate_launch_description():
+    return LaunchDescription([
+        DeclareLaunchArgument('connection_type', default_value='serial'),
+        DeclareLaunchArgument('params_file', default_value=''),
+        OpaqueFunction(function=launch_setup),
+    ])

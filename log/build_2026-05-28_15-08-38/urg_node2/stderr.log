@@ -1,0 +1,8 @@
+/home/ponqoo/rodep/urg_node2/urg_library/current/src/urg_utils.c: In function ‘urg_delay’:
+/home/ponqoo/rodep/urg_node2/urg_library/current/src/urg_utils.c:224:5: warning: implicit declaration of function ‘usleep’; did you mean ‘urg_sleep’? [-Wimplicit-function-declaration]
+  224 |     usleep(1000 * delay_msec);
+      |     ^~~~~~
+      |     urg_sleep
+/home/ponqoo/rodep/urg_node2/urg_library/current/src/urg_sensor.c:1349:8: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+ 1349 | static const int receive_II_command_response(urg_t *urg,
+      |        ^~~~~

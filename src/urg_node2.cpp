@@ -292,6 +292,8 @@ bool UrgNode2::connect()
   device_id_ = urg_sensor_serial_id(&urg_);
   scan_period_ = 1.e-6 * static_cast<double>(urg_scan_usec(&urg_));
 
+  set_scan_parameter();
+
   // 接続先のLiDARが強度出力に対応しているか
   if (publish_intensity_) {
     use_intensity_ = is_intensity_supported();
@@ -783,6 +785,8 @@ bool UrgNode2::is_intensity_supported(void)
   int ret = urg_get_distance_intensity(&urg_, &distance_[0], &intensity_[0], NULL);
   if (ret <= 0) {
     // 強度出力非対応
+    urg_stop_measurement(&urg_);
+    is_measurement_started_ = false;
     return false;
   }
 
@@ -799,7 +803,7 @@ bool UrgNode2::is_multiecho_supported(void)
     return false;
   }
 
-  if (urg_start_measurement(&urg_, URG_MULTIECHO_INTENSITY, 0, 0, 0) < 0) {
+  if (urg_start_measurement(&urg_, URG_MULTIECHO, 0, 0, 0) < 0) {
     RCLCPP_WARN(get_logger(), "Could not start Hokuyo measurement\n%s", urg_error(&urg_));
     return false;
   }
@@ -807,6 +811,8 @@ bool UrgNode2::is_multiecho_supported(void)
   int ret = urg_get_multiecho(&urg_, &distance_[0], NULL);
   if (ret <= 0) {
     // マルチエコー出力非対応
+    urg_stop_measurement(&urg_);
+    is_measurement_started_ = false;
     return false;
   }
 

@@ -24,15 +24,16 @@ UrgScanNode::UrgScanNode()
   serial_port_ = declare_parameter<std::string>("serial_port", "/dev/lidar");
   serial_baud_ = declare_parameter<int>("serial_baud", 115200);
   frame_id_ = declare_parameter<std::string>("frame_id", "laser");
+  scan_topic_ = declare_parameter<std::string>("scan_topic", "scan");
   frame_id_.erase(0, frame_id_.find_first_not_of('/'));
 
-  scan_pub_ = create_publisher<sensor_msgs::msg::LaserScan>("/scan", rclcpp::QoS(20));
+  scan_pub_ = create_publisher<sensor_msgs::msg::LaserScan>(scan_topic_, rclcpp::QoS(20));
   scan_thread_ = std::thread(&UrgScanNode::scan_loop, this);
 }
 
 UrgScanNode::~UrgScanNode()
 {
-  stop_thread_ = true;
+  stop_thread_.store(true);
   if (scan_thread_.joinable()) {
     scan_thread_.join();
   }
@@ -91,7 +92,7 @@ void UrgScanNode::disconnect_lidar()
 
 void UrgScanNode::scan_loop()
 {
-  while (!stop_thread_) {
+  while (!stop_thread_.load()) {
     if (!connected_ && !connect_lidar()) {
       rclcpp::sleep_for(500ms);
       continue;
@@ -104,7 +105,7 @@ void UrgScanNode::scan_loop()
     }
 
     int error_count = 0;
-    while (!stop_thread_) {
+    while (!stop_thread_.load()) {
       sensor_msgs::msg::LaserScan msg;
       if (make_scan_message(msg)) {
         scan_pub_->publish(msg);

@@ -1,6 +1,7 @@
 #ifndef URG_NODE2_URG_NODE2_HPP_
 #define URG_NODE2_URG_NODE2_HPP_
 
+#include <atomic>
 #include <string>
 #include <thread>
 #include <vector>
@@ -23,7 +24,7 @@ private:
 
   rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr scan_pub_;
   std::thread scan_thread_;
-  bool stop_thread_ = false;
+  std::atomic_bool stop_thread_{false};
 
   urg_t urg_;
   bool connected_ = false;
@@ -32,6 +33,7 @@ private:
   std::string serial_port_;
   int serial_baud_;
   std::string frame_id_;
+  std::string scan_topic_;
 
   double scan_period_ = 0.0;
   double angle_min_ = 0.0;

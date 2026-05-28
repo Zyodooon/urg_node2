@@ -14,10 +14,12 @@
 
 import os
 
-import yaml
 from ament_index_python.packages import get_package_share_directory
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
@@ -27,15 +29,24 @@ def generate_launch_description():
         'params_serial.yaml'
     )
 
-    with open(config_file_path, 'r') as file:
-        config_params = yaml.safe_load(file)['urg_node2']['ros__parameters']
-
     return LaunchDescription([
+        DeclareLaunchArgument('serial_port', default_value='/dev/lidar'),
+        DeclareLaunchArgument('serial_baud', default_value='115200'),
+        DeclareLaunchArgument('frame_id', default_value='laser'),
+        DeclareLaunchArgument('scan_topic', default_value='scan'),
         Node(
             package='urg_node2',
             executable='urg_node2_node',
             name='urg_node2',
-            parameters=[config_params],
+            parameters=[
+                config_file_path,
+                {
+                    'serial_port': LaunchConfiguration('serial_port'),
+                    'serial_baud': ParameterValue(LaunchConfiguration('serial_baud'), value_type=int),
+                    'frame_id': LaunchConfiguration('frame_id'),
+                    'scan_topic': LaunchConfiguration('scan_topic'),
+                },
+            ],
             output='screen',
         ),
     ])
